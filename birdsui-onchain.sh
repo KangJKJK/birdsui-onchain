@@ -55,6 +55,10 @@ case $choice in
     echo -e "${YELLOW}Userid를 입력하세요(user= 또는 query_id= 포함해서 입력):${NC}"
 
     # 쿼리 파일 생성 및 초기화
+
+    # 필요한 디렉토리 생성
+    mkdir -p "$WORK/accounts"
+    
     count=1  # 쿼리 파일 번호 초기화
     {
         while IFS= read -r line; do
