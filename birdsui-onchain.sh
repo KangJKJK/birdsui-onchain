@@ -84,9 +84,9 @@ case $choice in
             echo "  \"$line\","
         done
         echo "];"  # 배열 끝
-    } > "$WORK/config/proxiy_list.js"
+    } > "$WORK/config/proxy_list.js"
     
-    cp "$WORK/config/proxiy_list.js" "$WORK/app/config/proxiy_list.js"
+    cp "$WORK/config/proxy_list.js" "$WORK/app/config/proxy_list.js"
 
     # SUI 지갑의 프라이빗키 입력 받기
     read -p "SUI 지갑의 프라이빗키를 입력하세요. 여러계정의 경우 쉼표로 구분하세요: " sui_private_key
