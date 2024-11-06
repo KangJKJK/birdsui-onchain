@@ -105,7 +105,7 @@ case $choice in
         for i in "${!keys[@]}"; do
             echo "    ["
             echo "        \"${keys[i]}\","
-            echo "        \"${queries[i]}\","
+            echo "        \"${WORK}/accounts/query-akun$((i+1)).txt\"," 
             echo "    ]${i:+,}"  # 마지막 요소가 아닐 경우 쉼표 추가
         done
 
