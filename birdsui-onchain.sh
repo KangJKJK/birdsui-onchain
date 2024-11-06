@@ -57,7 +57,9 @@ case $choice in
     # 쿼리 파일 생성 및 초기화
 
     # 필요한 디렉토리 생성
+    mkdir -p "$WORK/app/config" 
     mkdir -p "$WORK/accounts"
+    mkdir -p "$WORK/app/accounts"  
     
     count=1  # 쿼리 파일 번호 초기화
     {
@@ -88,9 +90,6 @@ case $choice in
 
     # SUI 지갑의 프라이빗키 입력 받기
     read -p "SUI 지갑의 프라이빗키를 입력하세요. 여러계정의 경우 쉼표로 구분하세요: " sui_private_key
-
-    # 쿼리 파일에서 쿼리 읽기
-    mapfile -t queries < "$WORK/data.txt"
 
     # config.js 파일 생성
     {
