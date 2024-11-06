@@ -53,6 +53,9 @@ case $choice in
     echo -e "${GREEN}다계정의 query_id를 입력할 경우 줄바꿈으로 구분하세요.${NC}"
     echo -e "${GREEN}입력을 마치려면 엔터를 두 번 누르세요.${NC}"
     echo -e "${YELLOW}Userid를 입력하세요(user= 또는 query_id= 포함해서 입력):${NC}"
+
+     # 작업 공간의 accounts 디렉토리 생성
+    mkdir -p "$WORK/accounts"  # accounts 디렉토리 생성
     
     # 쿼리 파일 생성 및 초기화
     {
@@ -60,7 +63,7 @@ case $choice in
             [[ -z "$line" ]] && break
             echo "$line"
         done
-    } > "$WORK/data.txt"
+    } > "$WORK/accounts/data.txt"
     
     # 프록시파일 생성
     echo -e "${YELLOW}프록시 정보를 입력하세요. 입력형식: http://user:pass@ip:port${NC}"
@@ -75,7 +78,7 @@ case $choice in
             echo "  \"$line\","
         done
         echo "];"  # 배열 끝
-    } > "$WORK/config/proxiy_list.js"
+    } > "$WORK/app/config/proxiy_list.js"
 
     # SUI 지갑의 프라이빗키 입력 받기
     read -p "SUI 지갑의 프라이빗키를 입력하세요. 여러계정의 경우 쉼표로 구분하세요: " sui_private_key
