@@ -48,6 +48,12 @@ case $choice in
     nvm use --lts
     npm install
 
+    # 필요한 디렉토리 생성
+    echo -e "${YELLOW}필요한 디렉토리들을 생성합니다.${NC}"
+    mkdir -p "$WORK/app/config" 
+    mkdir -p "$WORK/accounts"
+    mkdir -p "$WORK/app/accounts"  
+
     echo -e "${YELLOW}Web텔레그렘에 접속후 F12를 누르시고 게임을 실행하세요${NC}"
     read -p "애플리케이션-세션저장소-birds-sui과 관련된 URL클릭 후 나오는 UserID나 QueryID를 적어두세요 (엔터) : "
     echo -e "${GREEN}다계정의 query_id를 입력할 경우 줄바꿈으로 구분하세요.${NC}"
@@ -55,13 +61,6 @@ case $choice in
     echo -e "${YELLOW}Userid를 입력하세요(user= 또는 query_id= 포함해서 입력):${NC}"
 
     # 쿼리 파일 생성 및 초기화
-
-    # 필요한 디렉토리 생성
-    echo -e "${YELLOW}필요한 디렉토리들을 생성합니다.${NC}"
-    mkdir -p "$WORK/app/config" 
-    mkdir -p "$WORK/accounts"
-    mkdir -p "$WORK/app/accounts"  
-    
     count=1  # 쿼리 파일 번호 초기화
     {
         while IFS= read -r line; do
