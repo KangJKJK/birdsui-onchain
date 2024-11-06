@@ -57,6 +57,7 @@ case $choice in
     # 쿼리 파일 생성 및 초기화
 
     # 필요한 디렉토리 생성
+    echo -e "${YELLOW}필요한 디렉토리들을 생성합니다.${NC}"
     mkdir -p "$WORK/app/config" 
     mkdir -p "$WORK/accounts"
     mkdir -p "$WORK/app/accounts"  
