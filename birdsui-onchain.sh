@@ -105,9 +105,7 @@ case $choice in
     } > "$WORK/config/config.js"
 
     # 봇 구동
-    node birds-sui-bot.js
-
-    fi
+    npm run start
     ;;
     
   2)
@@ -117,13 +115,8 @@ case $choice in
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # nvm을 로드합니다
     cd "$WORK"
 
-    # 사용자에게 프록시 사용 여부를 물어봅니다.
-    read -p "프록시를 사용하셨었습니까? (y/n): " use_proxy
-    if [[ "$use_proxy" == "y" || "$use_proxy" == "Y" ]]; then
-        node birds-sui-bot.js
-    else
-        node birds-sui-bot.js
-    fi
+    # 봇 구동
+    npm run start
     ;;
 
   *)
