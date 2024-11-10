@@ -65,12 +65,12 @@ case $choice in
     {
         while IFS= read -r line; do
             [[ -z "$line" ]] && break
-            # 각 쿼리를 'accounts/query-akunX' 형식으로 저장
-            echo "$line" > "$WORK/accounts/query-akun$count.txt"  # 쿼리 파일 생성
+            # 각 쿼리를 'accounts/query-akunX' 형식으로 저장 (확장자 없음)
+            echo "$line" > "$WORK/accounts/query-akun$count"  # .txt 확장자 제거
             ((count++))  # 쿼리 파일 번호 증가
         done
     }
-    
+
     # 프록시파일 생성
     echo -e "${YELLOW}프록시 정보를 입력하세요. 입력형식: http://user:pass@ip:port${NC}"
     echo -e "${YELLOW}여러 개의 프록시는 줄바꿈으로 구분하세요.${NC}"
@@ -104,7 +104,7 @@ case $choice in
         for i in "${!keys[@]}"; do
             echo "    ["
             echo "        \"${keys[i]}\","
-            echo "        \"${WORK}/accounts/query-akun$((i+1)).txt\"," 
+            echo "        \"${WORK}/accounts/query-akun$((i+1))\"," 
             echo "    ]${i:+,}"  # 마지막 요소가 아닐 경우 쉼표 추가
         done
 
@@ -133,3 +133,4 @@ case $choice in
     echo -e "${RED}잘못된 선택입니다. 다시 시도하세요.${NC}"
     ;;
 esac
+
