@@ -98,18 +98,15 @@ case $choice in
         echo "static TELEGRAM_APP_HASH = undefined;"
         echo "static USEONCHAINTX = true;" 
         echo "static USERWALLET = ["
-
+    
         # 프라이빗키를 쉼표로 분리하여 배열에 추가
         IFS=',' read -ra keys <<< "$sui_private_key"
         for i in "${!keys[@]}"; do
-            echo "    ["
-            echo "        \"${keys[i]}\","
-            echo "        \"${WORK}/accounts/query-akun$((i+1))\"," 
-            echo "    ]${i:+,}"  # 마지막 요소가 아닐 경우 쉼표 추가
+            echo "    [\"${keys[i]}\", \"${WORK}/accounts/query-akun$((i+1))\"]${i:+,}"
         done
-
+    
         echo "];"
-        echo "}"  # Config 클래스 끝
+        echo "}"
     } > "$WORK/config/config.js"
 
     cp "$WORK/config/config.js" "$WORK/app/config/config.js"
